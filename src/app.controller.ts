@@ -7,7 +7,17 @@ export class AppController {
 
   @Get('/')
   async get(){
-      return await this.appService.saveReport();
+    
+      // return await this.appService.saveReport(3);
+      return await this.appService.saveReport()
+
+  }
+  @Get('/createreport/:brancheid/:datato/:dataof')
+  async createRepot(@Param() param){
+    
+      
+      return await this.appService.saveReport(parseInt(param.brancheid),param.datato,param.dataof)
+
   }
   @Get('/getreport/:data')
   async s(@Param() param,@Res() res){

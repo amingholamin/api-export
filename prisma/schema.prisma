@@ -1,9 +1,9 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+
 }
+
+
 
 datasource db {
   provider = "postgresql"
@@ -18,7 +18,9 @@ model one{
 model two{
   id Int @default(autoincrement()) @id
   name String
-  oneId Int
-  one one @relation(fields: [oneId], references: [id])
-  
+  idc Int
+  oneid Int
+  one one @relation(fields: [oneid], references: [id])
+  createdAt DateTime @default(dbgenerated("NOW() "))   // Default value is 1 year from now. 
 }
+
